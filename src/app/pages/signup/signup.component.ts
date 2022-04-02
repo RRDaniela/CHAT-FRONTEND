@@ -12,9 +12,14 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class SignupComponent implements OnInit {
 
+  emailInUse: boolean =false;
+
   showPassword: boolean = false;
 
   form: FormGroup;
+  toggleEmailInUse(): void {
+    this.emailInUse = !this.emailInUse;
+  }
 
   credentials:any = {};
 
@@ -54,7 +59,9 @@ export class SignupComponent implements OnInit {
         complete: () => {
           this.router.navigate(['/login']);
         },
-        error: (err) => console.error(err)
+        error: (err) => {console.error(err)
+          this.toggleEmailInUse();
+        }
       });
     
     }else{

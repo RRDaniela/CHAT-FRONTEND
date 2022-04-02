@@ -21,6 +21,9 @@
             <button [disabled]="form.invalid">Sign up</button>
     </div>
     <label><input type="checkbox" formControlName="terms">Aceptar términos y condiciones</label>
+    <div>
+        <span *ngIf="emailInUse">Email already exists</span>
+    </div>
     <span *ngIf="form.errors && form.errors['passwordMismatch']">Passwords don't match</span>
     <div>
         <p>Have an account? <a routerLink="/login">Login</a></p>
