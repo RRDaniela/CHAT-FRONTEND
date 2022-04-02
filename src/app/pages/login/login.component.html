@@ -1,0 +1,25 @@
+<div>
+<form (submit)="login()">
+    <div>
+        <label for="email">Email:</label>
+        <input type="text" name ="email" [(ngModel)]="credentials.email" placeholder="Email">
+    </div>
+    <div>
+        <label for="password">Password: </label>
+        <input type="text" name="password" [(ngModel)]="credentials.password" placeholder="Password">
+    </div>
+    <div>
+        <button>
+            Log in
+        </button>
+    </div>
+    <div>
+        <div>
+            <span *ngIf="badCredentials">Incorrect credentials.</span>
+
+        </div>
+        Don't have an account? <a routerLink="/signup">Sign up here</a>
+    </div>
+</form>
+
+</div>
